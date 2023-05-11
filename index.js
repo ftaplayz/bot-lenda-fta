@@ -1,11 +1,13 @@
 require('dotenv').config();
+var ConfigLoader = require("ConfigLoader");
+var configL = new ConfigLoader();
 const { Client, Events, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const fs = require('fs');
 const keepAlive = require('./keepReplitOn.js');
 const path = require('node:path');
 var nicks = {};
-var blacklistedGames = ['356869127241072640', 'Genshin Impact', 'VALORANT'];
-var msgDeaf = 'FUI LEVAR NO CU JÁ VOLTO';
+var blacklistedGames = configL.load("automod").blacklistedGames;
+var msgDeaf = configL.load("automod").deafNick;
 nicks = JSON.parse(fs.readFileSync('./nicks.json'));
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildPresences , GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMembers] });
