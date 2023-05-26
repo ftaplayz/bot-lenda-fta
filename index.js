@@ -6,7 +6,7 @@ const fs = require('fs');
 const keepAlive = require('./keepReplitOn.js');
 const path = require('node:path');
 var nicks = {};
-var blacklistedGames = configL.load("automod").blacklistedGames;
+var blacklistedGames = ['356869127241072640', 'Genshin Impact', 'VALORANT', 'League of Legends'];
 var msgDeaf = configL.load("automod").deafNick;
 nicks = JSON.parse(fs.readFileSync('./nicks.json'));
 
