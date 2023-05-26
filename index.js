@@ -10,7 +10,7 @@ var blacklistedGames = configL.load("automod").blacklistedGames;
 var msgDeaf = configL.load("automod").deafNick;
 nicks = JSON.parse(fs.readFileSync('./nicks.json'));
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildPresences , GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMembers] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildPresences , GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages] });
 
 client.commands = new Collection();
 
@@ -32,6 +32,11 @@ for (const folder of commandFolders) {
   	}
 	}
 }
+
+client.on('messageCreate', msg => {
+    if(msg.author.id == 831596928474677308)
+        msg.reply("Beware girls, the csgo gamesense god is talking.");
+})
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
