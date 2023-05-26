@@ -1,2 +1,6 @@
 .env
 localtest.js
+.replit
+package-lock.json
+package.json
+replit.nix
