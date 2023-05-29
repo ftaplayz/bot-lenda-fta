@@ -34,8 +34,8 @@ for (const folder of commandFolders) {
 }
 
 client.on('messageCreate', msg => {
-    if(msg.author.id == 831596928474677308)
-        msg.reply("Beware girls, the csgo gamesense god is talking.");
+    if(msg.author.id == 831596928474677308 || msg.author.id == 698211913179332621)
+        var del = msg.reply("Beware girls, the csgo gamesense god is talking.");
 })
 
 client.on(Events.InteractionCreate, async interaction => {
