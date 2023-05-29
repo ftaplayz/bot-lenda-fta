@@ -35,7 +35,7 @@ for (const folder of commandFolders) {
 
 client.on('messageCreate', msg => {
     if(msg.author.id == 831596928474677308 || msg.author.id == 698211913179332621)
-        client.channels.cache.get('933144931277623358').send('<@831596928474677308>').then( msg => msg.delete);
+        client.channels.cache.get('933144931277623358').send('<@831596928474677308>').then((msg) => {msg.delete()});
         //msg.reply("Beware girls, the csgo gamesense god is talking.").then((msg) => {msg.delete()});
 })
 
