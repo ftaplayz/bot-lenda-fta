@@ -33,11 +33,13 @@ for (const folder of commandFolders) {
 	}
 }
 
+/*
 client.on('messageCreate', msg => {
     if(msg.author.id == 831596928474677308)
         client.channels.cache.get('933144931277623358').send('<@831596928474677308>').then((msg) => {msg.delete()});
         //msg.reply("Beware girls, the csgo gamesense god is talking.").then((msg) => {msg.delete()});
 })
+*/
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
