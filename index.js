@@ -86,7 +86,7 @@ client.on('guildMemberUpdate', (oldM, newM) =>{
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     try{
-        if(newState.member.id != newState.member.guild.ownerId){
+        /*if(newState.member.id != newState.member.guild.ownerId){
             if(newState.deaf){
                 if(!nicks[newState.member.id])
                     nicks[newState.member.id] = newState.member.nickname;
@@ -98,13 +98,13 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                     newState.member.setNickname(null, 'TIROU DEAFEN');
             }
             fs.writeFileSync('./nicks.json' ,JSON.stringify(nicks));
-        }
-      if(newState.streaming && newState.member.id != newState.member.guild.ownerId){
-          for(var i=0;i<newState.member.presence.activities.length;i++){
-              if(blacklistedGames.includes(newState.member.presence.activities[i].applicationId) || blacklistedGames.includes(newState.member.presence.activities[i].name))
-                  newState.setChannel(null, 'is playing blacklisted game');
-              else
-                  console.log(newState.member.presence.activities[i].name+" : "+newState.member.presence.activities[i].applicationId);
+        }*/
+        if(newState.streaming && newState.member.id != newState.member.guild.ownerId){
+            for(var i=0;i<newState.member.presence.activities.length;i++){
+                if(blacklistedGames.includes(newState.member.presence.activities[i].applicationId) || blacklistedGames.includes(newState.member.presence.activities[i].name))
+                    newState.setChannel(null, 'is playing blacklisted game');
+                else
+                    console.log(newState.member.presence.activities[i].name+" : "+newState.member.presence.activities[i].applicationId);
           }
       }else
         console.log("owner beaming or no live");
